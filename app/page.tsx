@@ -38,7 +38,7 @@ export default function Home() {
       try {
         const response = await fetch('https://fakestoreapi.com/products');
         if (!response.ok) throw new Error('Failed to fetch products');
-        const data = await response.json();
+        const data:Product[] = await response.json();
         setProducts(data);
         
         const uniqueCategories = [...new Set(data.map((p: Product) => p.category))];
